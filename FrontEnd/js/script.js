@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const portfolio = document.querySelector("#portfolio"); // Sélectionne le portfolio
     const gallery = document.querySelector(".gallery"); // Sélectionne la galerie
 
     fetch("http://localhost:5678/api/works") 
@@ -26,14 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!categoryMenu) {
                 categoryMenu = document.createElement("select");
                 categoryMenu.id = "category-menu";
-                gallery.appendChild(categoryMenu); // Ajoute au body ou à un autre conteneur
+                portfolio.appendChild(categoryMenu); 
             }
     
             const categoriesSet = new Set();
     
-            // Ajouter une option "Tous" en premier
-            const allOption = document.createElement("button");
-            allOption.textContent = "Tous";
+            // Ajouter une option "Toutes" en premier
+            const allOption = document.createElement("option");
+            allOption.value = "Toutes";
+            allOption.textContent = "Toutes";
             allOption.dataset.categoryId = "0";
             categoryMenu.appendChild(allOption);
     
