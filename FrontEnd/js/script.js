@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!categoryMenu) {
                 categoryMenu = document.createElement("div");
                 categoryMenu.className = "category-menu";
-                portfolio.prepend(categoryMenu);
+                const h2 = portfolio.querySelector("h2");
+                h2.insertAdjacentElement("afterend", categoryMenu);
             }
 
             const categoriesSet = new Set();
