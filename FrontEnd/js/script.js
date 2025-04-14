@@ -59,6 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 categoryMenu.appendChild(button);
             });
+
+            const buttons = document.querySelectorAll('.category-menu button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                  buttons.forEach(btn => btn.classList.remove('active'));
+                  button.classList.add('active');
+                });
+              });
         })
         .catch(error => console.error("Erreur lors de la récupération des catégories :", error));
+});
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname;
+    const loginLink = document.getElementById('login-link');
+
+    if (currentPage.endsWith('login.html')) {
+        loginLink.classList.add('active');
+    }
 });
