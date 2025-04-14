@@ -1,56 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const portfolio = document.querySelector("#portfolio"); // Sélectionne le portfolio
-    const gallery = document.querySelector(".gallery"); // Sélectionne la galerie
+    const portfolio = document.querySelector("#portfolio");
+    const gallery = document.querySelector(".gallery");
 
-    fetch("http://localhost:5678/api/works") 
+    let allWorks = []; // Stocke tous les travaux ici
+
+    // Fonction pour afficher les travaux
+    function display(worksToDisplay) {
+        gallery.innerHTML = ""; // Vide la galerie
+
+        worksToDisplay.forEach(work => {
+            const figure = document.createElement("figure");
+            figure.innerHTML = `
+                <img src="${work.imageUrl}" alt="${work.title}" class="${work.categoryId}">
+                <figcaption>${work.title}</figcaption>
+            `;
+            gallery.appendChild(figure);
+        });
+    }
+
+    // Récupère les travaux
+    fetch("http://localhost:5678/api/works")
         .then(response => response.json())
         .then(data => {
-            gallery.innerHTML = ""; // Vide la galerie existante
-
-            data.forEach(work => {
-                const figure = document.createElement("figure");
-                figure.innerHTML = `
-                    <img src="${work.imageUrl}" alt="${work.title}">
-                    <figcaption>${work.title}</figcaption>
-                `;
-                gallery.appendChild(figure);
-            });
+            allWorks = data; // Stocke les travaux dans la variable globale
+            display(allWorks); // Affiche tous les travaux au début
         })
         .catch(error => console.error("Erreur lors du fetch :", error));
 
-
-        fetch("http://localhost:5678/api/categories")
+    // Récupère les catégories
+    fetch("http://localhost:5678/api/categories")
         .then(response => response.json())
         .then(data => {
-
             let categoryMenu = document.getElementById("category-menu");
             if (!categoryMenu) {
-                categoryMenu = document.createElement("select");
-                categoryMenu.id = "category-menu";
-                portfolio.appendChild(categoryMenu); 
+                categoryMenu = document.createElement("div");
+                categoryMenu.className = "category-menu";
+                portfolio.prepend(categoryMenu);
             }
-    
+
             const categoriesSet = new Set();
-    
-            // Ajouter une option "Toutes" en premier
-            const allOption = document.createElement("option");
-            allOption.value = "Toutes";
-            allOption.textContent = "Toutes";
-            allOption.dataset.categoryId = "0";
-            categoryMenu.appendChild(allOption);
-    
-            // Remplir le Set avec les catégories de l'API
+
+            // Bouton "Tous"
+            const allButton = document.createElement("button");
+            allButton.textContent = "Tous";
+            allButton.addEventListener("click", () => display(allWorks));
+            categoryMenu.appendChild(allButton);
+
+            // Ajouter chaque catégorie
             data.forEach(category => categoriesSet.add(category));
-    
-            // Créer les boutons dynamiquement
+
             categoriesSet.forEach(category => {
-                const option = document.createElement("option");
-                option.value = category.name;
-                option.dataset.categoryId = category.id;
-                categoryMenu.appendChild(option);
+                const button = document.createElement("button");
+                button.textContent = category.name;
+                button.addEventListener("click", () => {
+                    const filteredWorks = allWorks.filter(work => work.categoryId === category.id);
+                    display(filteredWorks);
+                });
+                categoryMenu.appendChild(button);
             });
         })
         .catch(error => console.error("Erreur lors de la récupération des catégories :", error));
-    
-
 });
