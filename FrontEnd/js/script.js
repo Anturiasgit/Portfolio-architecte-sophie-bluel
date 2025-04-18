@@ -73,11 +73,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-window.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname;
-    const loginLink = document.getElementById('login-link');
-
-    if (currentPage.endsWith('login.html')) {
-        loginLink.classList.add('active');
-    }
-});
