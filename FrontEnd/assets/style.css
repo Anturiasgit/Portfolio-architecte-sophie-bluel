@@ -375,11 +375,24 @@ footer nav ul {
 	border-radius: 50px;
 	margin-top: 10px;
 	font-family: 'Work Sans';
+	cursor: pointer;
+	width: 180px;
+	align-self: center;
 }
 
 .login a {
 	margin-top: 25px;
 	color: black;
 	font-weight: lighter;
+	cursor: pointer;
+	text-align: center;
 }
+
+.error-message {
+	color:#ee4444;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+	display: none;
+} 
 

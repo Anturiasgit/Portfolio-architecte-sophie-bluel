@@ -8,6 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
 function authentification() {
     const formAuth = document.querySelector(".auth");
     formAuth.addEventListener("submit", function (event) {
@@ -39,10 +41,17 @@ function authentification() {
                 console.log("Connexion réussie :", data);
                 localStorage.setItem("userId", data.userId);
                 localStorage.setItem("token", data.token);
-                window.location.href = "index.html";
+                window.location.href = "index_edit.html"; 
             })
             .catch(error => console.error("Tentative de connexion échouée", error));
     });
 }
 
 authentification();
+
+});
+
+export * from "./login.js";
+
+
+
