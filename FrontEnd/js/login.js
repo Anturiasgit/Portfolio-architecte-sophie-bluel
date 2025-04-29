@@ -39,8 +39,8 @@ function authentification() {
             })
             .then(data => {
                 console.log("Connexion réussie :", data);
-                localStorage.setItem("userId", data.userId);
-                localStorage.setItem("token", data.token);
+                sessionStorage.setItem("userId", data.userId);
+                sessionStorage.setItem("token", data.token);
                 window.location.href = "index.html"; 
             })
             .catch(error => console.error("Tentative de connexion échouée", error));
