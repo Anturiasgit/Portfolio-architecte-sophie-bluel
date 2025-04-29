@@ -41,7 +41,7 @@ function authentification() {
                 console.log("Connexion réussie :", data);
                 localStorage.setItem("userId", data.userId);
                 localStorage.setItem("token", data.token);
-                window.location.href = "index_edit.html"; 
+                window.location.href = "index.html"; 
             })
             .catch(error => console.error("Tentative de connexion échouée", error));
     });
@@ -51,7 +51,6 @@ authentification();
 
 });
 
-export * from "./login.js";
 
 
 

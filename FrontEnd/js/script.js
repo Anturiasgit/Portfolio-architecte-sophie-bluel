@@ -1,7 +1,9 @@
 import "./works.js";
 import "./categories.js";
-import "./login.js";
+
+document.addEventListener("DOMContentLoaded", () => {
 
 
+});
 
 

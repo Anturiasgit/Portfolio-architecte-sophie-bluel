@@ -1,10 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const gallery = document.querySelector(".gallery");
-    let allWorks = []; // Stocke tous les travaux ici
+ const gallery = document.querySelector(".gallery");
+    export let allWorks = []; // Stocke tous les travaux ici
 
     // Fonction pour afficher les travaux
-    function display(worksToDisplay) {
+    export function display(worksToDisplay) {
         gallery.innerHTML = ""; // Vide la galerie
 
         worksToDisplay.forEach(work => {
@@ -26,8 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
      })
      .catch(error => console.error("Erreur lors du fetch :", error));
 
-});
 
-export * from "./works.js";
-    
     
