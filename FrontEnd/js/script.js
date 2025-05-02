@@ -2,9 +2,16 @@ import "./works.js";
 import "./categories.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const login = document.getElementById("login");
 
-    console.log("la session : ", sessionStorage);
-    console.log("le local :",localStorage);
+    if(window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")){
+        login.textContent = "logout";
+        login.id = "logout";   
+    }
+
+    
+
+    
 
 });
 
