@@ -2,7 +2,7 @@ import * as w from "./works.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    const portfolio = document.querySelector("#portfolio");
+    const projects = document.getElementsByClassName("projects");
 
     // Récupère les catégories
     fetch("http://localhost:5678/api/categories")
@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!categoryMenu) {
             categoryMenu = document.createElement("div");
             categoryMenu.className = "category-menu";
-            const h2 = portfolio.querySelector("h2");
-            h2.insertAdjacentElement("afterend", categoryMenu);
+            projects.insertAdjacentElement("afterend", categoryMenu);
         }
     
         const categoriesSet = new Set();
