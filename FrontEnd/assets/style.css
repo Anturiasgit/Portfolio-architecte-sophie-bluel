@@ -260,7 +260,7 @@ nav a:hover {
 	background-color: white;
 	position: absolute;
 	left: 50%;
-	top: 150%;
+	top: 140%;
 	transform: translate(-50%, -50%);
 	z-index: 1001;
 	border-radius: 10px;
@@ -269,11 +269,17 @@ nav a:hover {
 	border: 0.5px solid black;
 }
 
-.fa-xmark {
+.modale .fa-xmark {
 	font-size: 125%;
 	position: absolute;
 	right: 4%;
 	top: 3%;
+}
+
+.modale h3 {
+	text-align: center;
+	margin-top: 50px;
+	font-size: 25px;
 }
 
 .category-menu {

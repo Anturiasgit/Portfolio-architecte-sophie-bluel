@@ -1,28 +1,44 @@
- const gallery = document.querySelector(".gallery");
-    export let allWorks = []; // Stocke tous les travaux ici
+const gallery = document.querySelector(".gallery");
+let allWorks = [];
 
-    // Fonction pour afficher les travaux
-    export function display(worksToDisplay) {
-        gallery.innerHTML = ""; // Vide la galerie
 
-        worksToDisplay.forEach(work => {
-            const figure = document.createElement("figure");
-            figure.innerHTML = `
+export async function fetchWorks() {
+    try {
+        const response = await fetch("http://localhost:5678/api/works");
+        const data = await response.json();
+        allWorks = data;
+        return allWorks;
+    } catch (error) {
+        console.error("Erreur lors de la récupération des travaux :", error);
+    }  
+}
+
+
+// Fonction pour afficher les travaux
+export function display(worksToDisplay) {
+    gallery.innerHTML = ""; // Vide la galerie
+
+    worksToDisplay.forEach(work => {
+        const figure = document.createElement("figure");
+        figure.innerHTML = `
                 <img src="${work.imageUrl}" alt="${work.title}" class="${work.categoryId}">
                 <figcaption>${work.title}</figcaption>
             `;
-            gallery.appendChild(figure);
-        });
-    }
+        gallery.appendChild(figure);
+    });
+}
 
-     // Récupère les travaux
-     fetch("http://localhost:5678/api/works")
-     .then(response => response.json())
-     .then(data => {
-         allWorks = data; // Stocke les travaux dans la variable globale
-        display(allWorks); // Affiche tous les travaux au début
-     })
-     .catch(error => console.error("Erreur lors du fetch :", error));
+fetchWorks().then(display);
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
