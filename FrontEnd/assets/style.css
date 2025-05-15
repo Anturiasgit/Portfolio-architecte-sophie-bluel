@@ -295,22 +295,21 @@ nav a:hover {
 }
  
  .modale #trait {
+	margin-top: 35px;
 	width: 500px;
 }
-
 
 .modale button {
 	background-color: #1D6154;
 	color: white;
 	border: none;
 	font-weight: lighter;
-	padding: 10px 40px;
+	padding: 10px 30px;
 	border-radius: 50px;
-	margin-top: 10px;
+	margin: 40px 260px;
 	font-family: 'Work Sans';
 	cursor: pointer;
-	width: 180px;
-	align-self: center;
+	width: 212px;
 }
 
 
