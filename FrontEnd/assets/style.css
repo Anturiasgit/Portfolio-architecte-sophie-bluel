@@ -264,7 +264,7 @@ nav a:hover {
 	transform: translate(-50%, -50%);
 	z-index: 1001;
 	border-radius: 10px;
-	width: 725px;
+	width: 725px; 
 	height: 750px;
 	border: 0.5px solid black;
 }
@@ -278,9 +278,41 @@ nav a:hover {
 
 .modale h3 {
 	text-align: center;
-	margin-top: 50px;
+	margin: 50px 0;
 	font-size: 25px;
 }
+
+.works-images {
+	display: flex;
+	text-align: center;
+	padding: 0 87px 0 112px;
+	flex-wrap: wrap;
+}
+
+.works-images img {
+	width: 16%;
+	margin: 0 20px 40px 0;
+}
+ 
+ .modale #trait {
+	width: 500px;
+}
+
+
+.modale button {
+	background-color: #1D6154;
+	color: white;
+	border: none;
+	font-weight: lighter;
+	padding: 10px 40px;
+	border-radius: 50px;
+	margin-top: 10px;
+	font-family: 'Work Sans';
+	cursor: pointer;
+	width: 180px;
+	align-self: center;
+}
+
 
 .category-menu {
 	margin: 50px 0;

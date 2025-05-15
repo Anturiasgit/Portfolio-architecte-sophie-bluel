@@ -6,7 +6,7 @@ import { fetchWorks } from "./works.js";
 document.addEventListener("DOMContentLoaded", async () => {
     const allWorks = await fetchWorks();
     const login = document.getElementById("login");
-    const worksImages = document.getElementsByClassName("works-images");
+    const worksImages = document.querySelector(".works-images");
 
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
@@ -17,11 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             worksImages.innerHTML = "";
 
             worksToDisplay.forEach(work => {
-                worksImages.innerHTML = `
-                <img src="${work.imageUrl}" alt="${work.title}">
-
-                  `
-
+                const image = document.createElement("img");
+                image.src = work.imageUrl;
+                image.alt = work.title;
+                worksImages.appendChild(image);                  
             });
         }
             displayWorksImages(allWorks);
