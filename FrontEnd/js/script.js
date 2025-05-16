@@ -17,22 +17,31 @@ document.addEventListener("DOMContentLoaded", async () => {
             worksImages.innerHTML = "";
 
             worksToDisplay.forEach(work => {
+                const workImage = document.createElement("div");
                 const image = document.createElement("img");
+                const bin = document.createElement("i");
+
+                workImage.classList.add("work-image");
                 image.src = work.imageUrl;
                 image.alt = work.title;
-                worksImages.appendChild(image);                  
+                bin.className = "fa-solid fa-trash-can";
+
+                worksImages.appendChild(workImage);
+                workImage.appendChild(image);
+                workImage.appendChild(bin);
+
             });
         }
-            displayWorksImages(allWorks);
+        displayWorksImages(allWorks);
 
     }
 
 
     document.getElementById("logout").addEventListener("click", (event) => {
-    event.preventDefault(); // pour empêcher un comportement par défaut éventuel
-    sessionStorage.clear(); // vide toute la mémoire sessionStorage
-    window.location.href = "index.html"; // redirige vers index.html
-});    
+        event.preventDefault(); // pour empêcher un comportement par défaut éventuel
+        sessionStorage.clear(); // vide toute la mémoire sessionStorage
+        window.location.href = "index.html"; // redirige vers index.html
+    });
 
 
 });
