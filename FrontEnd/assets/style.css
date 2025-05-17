@@ -282,6 +282,43 @@ nav a:hover {
 	font-size: 25px;
 }
 
+.modale #valider {
+	background-color: rgb(175, 170, 170);
+}
+
+
+.upload-box {
+  background-color: #e8edf1; 
+  width: 525px;
+  height: auto;
+  border-radius: 3px;
+  margin: -10px 0 0 100px;
+  padding: 20px 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fa-image {
+  font-size: 70px;
+  color: #b3bbc2;
+  opacity: 0.8;
+}
+
+.upload-box span {
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 25px;
+  color: #365674;
+}
+
+.upload-box p {
+   font-size: 13px;
+  color: #666;
+}
+
 .works-images {
 	display: flex;
 	flex-wrap: wrap;
