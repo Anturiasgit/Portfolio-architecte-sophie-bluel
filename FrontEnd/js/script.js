@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
         displayWorksImages(allWorks);
-
     }
 
 
