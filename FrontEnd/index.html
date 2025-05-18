@@ -59,16 +59,20 @@
 		<section class="modale">
 			<i class="fa-solid fa-xmark"></i>
 			<h3>Galerie photo</h3>
-			<h3>Ajout photo</h3>
 			<div class="works-images">
 			</div>
 
+			<h3>Ajout photo</h3>
 			<div class="upload-box">
 				<i class="fa-regular fa-image"></i>
-				<span>+ Ajouter photo</span>
+				<button class="add">+ Ajouter photo</button>
 				<p>jpg, png : 4mo max</p>
 			</div>
-			<input type="file" id="photo" name="photo" accept="image/png, image/jpeg" hidden />
+			<form action="#">
+			<input type="file" id="photo" name="photo" value="+ Ajouter photo" accept="image/png, image/jpeg" hidden/>
+				<input type="text">
+				
+			</form>
 
 			<hr id="trait">
 			<button>Ajouter une photo</button>
