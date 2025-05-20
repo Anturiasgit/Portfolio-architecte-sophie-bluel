@@ -250,6 +250,7 @@ nav a:hover {
 	font-family: 'Work Sans';
 	height: 50%;
 	margin-top: 10px;
+	cursor: pointer;
 }
 
 .edit .fa-regular {
@@ -257,10 +258,11 @@ nav a:hover {
 }
 
 .modale {
+	display: none;
 	background-color: white;
 	position: absolute;
 	left: 50%;
-	top: 140%;
+	top: 25%;
 	transform: translate(-50%, -50%);
 	z-index: 1001;
 	border-radius: 10px;
@@ -319,7 +321,7 @@ nav a:hover {
 	background-color: #c0c8ce;
 	border-radius: 25px;
 	padding: 10px 40px;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .upload-box p {
@@ -414,9 +416,18 @@ select[id="category"] {
 	width: 212px;
 }
 
-.modale {
+#overlay {
 	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
 }
+
 
 .modale .modale-add {
 	display: none;

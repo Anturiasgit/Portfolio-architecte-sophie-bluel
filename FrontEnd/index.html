@@ -56,7 +56,9 @@
 			<div class="gallery">
 			</div>
 		</section>
-		<section class="modale">
+
+		<div id="overlay">
+			<section class="modale">
 			<i class="fa-solid fa-xmark"></i>
 			<div class="modale-gallery">
 			<h3>Galerie photo</h3>
@@ -73,7 +75,7 @@
 				<div class="upload-box">
 					<i class="fa-regular fa-image"></i>
 					<label for="file-input" class="custom-upload-label">+ Ajouter photo</label>
-					<input type="file" id="file-input" accept="image/png, image/jpeg" required/>
+					<input type="file" id="file-input" accept="image/png, image/jpeg" required hidden/>
 					<p>jpg, png : 4mo max</p>
 				</div>
 				<div class="title-and-category">
@@ -90,6 +92,7 @@
 			</div>
 			
 			</section>
+		</div>
 
 		<section id="contact">
 			<h2>Contact</h2>

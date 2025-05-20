@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const worksImages = document.querySelector(".works-images");
     const edit = document.querySelector(".edit");
     const modale = document.querySelector(".modale");
+    const overlay = document.querySelector("#overlay");
+    const croix = document.querySelector(".fa-xmark");
 
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
@@ -39,9 +41,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         edit.addEventListener("click", () => {
             modale.style.display = "inline";
+            overlay.style.display = "inline";
+            overlay.style.height = `${document.documentElement.scrollHeight}px`;
         });
 
-        if(modale.style.display=="inline")
+       overlay.addEventListener("click", () => {
+        if(modale.style.display == "inline" && overlay.style.display == "inline") {
+         modale.style.display = "none";
+         overlay.style.display = "none";
+        }
+       });
+
+       modale.addEventListener("click", function(event) {
+        event.stopPropagation();
+       });
+
+       croix.addEventListener("click", () => {
+         modale.style.display = "none";
+         overlay.style.display = "none";
+       });
             
     }
 
