@@ -7,11 +7,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const allWorks = await fetchWorks();
     const login = document.getElementById("login");
     const worksImages = document.querySelector(".works-images");
+    const edit = document.querySelector(".edit");
+    const modale = document.querySelector(".modale");
 
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
         login.textContent = "logout";
         login.id = "logout";
+
 
         function displayWorksImages(worksToDisplay) {
             worksImages.innerHTML = "";
@@ -33,6 +36,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
         displayWorksImages(allWorks);
+
+        edit.addEventListener("click", () => {
+            modale.style.display = "inline";
+        });
+
+        if(modale.style.display=="inline")
+            
     }
 
 

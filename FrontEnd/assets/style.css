@@ -265,12 +265,14 @@ nav a:hover {
 	z-index: 1001;
 	border-radius: 10px;
 	width: 725px;
-	height: 750px;
+	height: auto;
 	border: 0.5px solid black;
+	padding-bottom: 35px;
 }
 
 .modale .fa-xmark {
-	font-size: 125%;
+	cursor: pointer;
+	font-size: 130%;
 	position: absolute;
 	right: 4%;
 	top: 3%;
@@ -282,43 +284,84 @@ nav a:hover {
 	font-size: 25px;
 }
 
-.modale #valider {
-	background-color: rgb(175, 170, 170);
+.fa-arrow-left {
+	font-size: 150%;
+	position: absolute;
+	left: 4%;
+	top: 2.5%;
+	cursor: pointer;
 }
 
-
 .upload-box {
-  background-color: #e8edf1; 
-  width: 525px;
-  height: auto;
-  border-radius: 3px;
-  margin: -10px 0 0 100px;
-  padding: 20px 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+	background-color: #e8edf1;
+	width: 525px;
+	height: auto;
+	border-radius: 3px;
+	margin: -10px 0 0 100px;
+	padding: 20px 0;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
 }
 
 .fa-image {
-  font-size: 70px;
-  color: #b3bbc2;
-  opacity: 0.8;
+	font-size: 70px;
+	color: #b3bbc2;
+	opacity: 0.8;
 }
 
-.upload-box .add {
-  font-size: 15px;
-  font-weight: 400;
-  color: #306685;
-  background-color: #c0c8ce;
-  border-radius: 25px;
-  padding: 10px 40px;
+.upload-box .custom-upload-label {
+	font-size: 15px;
+	font-weight: 400;
+	color: #306685;
+	background-color: #c0c8ce;
+	border-radius: 25px;
+	padding: 10px 40px;
+	cursor:pointer;
 }
 
 .upload-box p {
-   font-size: 13px;
-  color: #666;
+	font-size: 13px;
+	color: #666;
+}
+
+.title-and-category {
+	display: flex;
+	flex-direction: column;
+	margin: 30px 0 40px 100px;
+}
+
+input[id="title"] {
+	width: 493px;
+	height: 25px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 12px 16px;
+	border: none;
+	background-color: white;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+select[id="category"] {
+	width: 525px;
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 12px 16px;
+	border: none;
+	background-color: white;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.modale #valider {
+	background-color: rgb(175, 170, 170);
 }
 
 .works-images {
@@ -353,7 +396,7 @@ nav a:hover {
 }
 
 
-.modale #trait {
+.modale hr {
 	margin-top: 35px;
 	width: 520px;
 }
@@ -371,6 +414,13 @@ nav a:hover {
 	width: 212px;
 }
 
+.modale {
+	display: none;
+}
+
+.modale .modale-add {
+	display: none;
+}
 
 .category-menu {
 	margin: 50px 0;

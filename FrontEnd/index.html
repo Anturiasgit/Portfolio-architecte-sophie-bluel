@@ -58,26 +58,39 @@
 		</section>
 		<section class="modale">
 			<i class="fa-solid fa-xmark"></i>
+			<div class="modale-gallery">
 			<h3>Galerie photo</h3>
 			<div class="works-images">
 			</div>
-
-			<h3>Ajout photo</h3>
-			<div class="upload-box">
-				<i class="fa-regular fa-image"></i>
-				<button class="add">+ Ajouter photo</button>
-				<p>jpg, png : 4mo max</p>
-			</div>
-			<form action="#">
-			<input type="file" id="photo" name="photo" value="+ Ajouter photo" accept="image/png, image/jpeg" hidden/>
-				<input type="text">
-				
-			</form>
-
 			<hr id="trait">
 			<button>Ajouter une photo</button>
-			<button id="valider">Valider</button>
-		</section>
+			</div>	
+			
+			<div class="modale-add">
+			<i class="fa-solid fa-arrow-left"></i>
+			<h3>Ajout photo</h3>
+			<form action="#">
+				<div class="upload-box">
+					<i class="fa-regular fa-image"></i>
+					<label for="file-input" class="custom-upload-label">+ Ajouter photo</label>
+					<input type="file" id="file-input" accept="image/png, image/jpeg" required/>
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div class="title-and-category">
+				<label for="title">Titre</label>
+				<input type="text" id="title" required>
+				<label for="category">Catégorie</label>
+				<select id="category">
+					<option value=""></option>
+				</select>
+				</div>				
+				<hr>
+				<button type="submit" id="valider">Valider</button>
+			</form>
+			</div>
+			
+			</section>
+
 		<section id="contact">
 			<h2>Contact</h2>
 			<p>Vous avez un projet ? Discutons-en !</p>
