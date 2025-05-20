@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         login.textContent = "logout";
         login.id = "logout";
 
-
         function displayWorksImages(worksToDisplay) {
             worksImages.innerHTML = "";
 
@@ -38,6 +37,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
         displayWorksImages(allWorks);
+
+        edit.style.display = "flex";
 
         edit.addEventListener("click", () => {
             modale.style.display = "inline";
