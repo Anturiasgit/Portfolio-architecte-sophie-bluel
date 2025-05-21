@@ -1,13 +1,23 @@
 import * as w from "./works.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-    const projects = document.getElementsByClassName("projects");
+let cats = [];
 
-    // Récupère les catégories
-    fetch("http://localhost:5678/api/categories")
-    .then(response => response.json())
-    .then(data => {
+ export async function fetchCategories() {
+        try {
+            const response = await fetch("http://localhost:5678/api/categories");
+            const data = await response.json();
+            cats = data;
+            return cats;
+        } catch(error) {
+            console.error("Erreur lors de la récupération des catégories :", error);
+        }
+    }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    
+    const allCats = await fetchCategories();
+    const projects = document.getElementsByClassName("projects")[0];
+
         let categoryMenu = document.getElementById("category-menu");
         if (!categoryMenu) {
             categoryMenu = document.createElement("div");
@@ -24,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         categoryMenu.appendChild(allButton);
     
         // Ajouter chaque catégorie
-        data.forEach(category => categoriesSet.add(category));
+        allCats.forEach(category => categoriesSet.add(category));
     
         categoriesSet.forEach(category => {
             const button = document.createElement("button");
@@ -44,6 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
               button.classList.add('active');
             });
           });
-    })
-    .catch(error => console.error("Erreur lors de la récupération des catégories :", error));
-});
+    });
+

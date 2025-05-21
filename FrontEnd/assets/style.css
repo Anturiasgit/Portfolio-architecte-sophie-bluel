@@ -362,7 +362,7 @@ select[id="category"] {
 	cursor: pointer;
 }
 
-.modale #valider {
+.modale #valider:disabled {
 	background-color: rgb(175, 170, 170);
 }
 

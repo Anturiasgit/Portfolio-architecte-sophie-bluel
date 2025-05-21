@@ -1,21 +1,23 @@
 import "./works.js";
 import "./categories.js";
 import { fetchWorks } from "./works.js";
+import "./add.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const allWorks = await fetchWorks();
-    const login = document.getElementById("login");
-    const worksImages = document.querySelector(".works-images");
-    const edit = document.querySelector(".edit");
-    const modale = document.querySelector(".modale");
-    const overlay = document.querySelector("#overlay");
-    const croix = document.querySelector(".fa-xmark");
+    const allWorks = await fetchWorks();    
 
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
+        const login = document.getElementById("login");
         login.textContent = "logout";
         login.id = "logout";
+        const worksImages = document.querySelector(".works-images");
+        const edit = document.querySelector(".edit");
+        const modale = document.querySelector(".modale");
+        const overlay = document.querySelector("#overlay");
+        const croix = document.querySelector(".fa-xmark");
+
 
         function displayWorksImages(worksToDisplay) {
             worksImages.innerHTML = "";
@@ -46,30 +48,30 @@ document.addEventListener("DOMContentLoaded", async () => {
             overlay.style.height = `${document.documentElement.scrollHeight}px`;
         });
 
-       overlay.addEventListener("click", () => {
-        if(modale.style.display == "inline" && overlay.style.display == "inline") {
-         modale.style.display = "none";
-         overlay.style.display = "none";
-        }
-       });
+        overlay.addEventListener("click", () => {
+            if (modale.style.display == "inline" && overlay.style.display == "inline") {
+                modale.style.display = "none";
+                overlay.style.display = "none";
+            }
+        });
 
-       modale.addEventListener("click", function(event) {
-        event.stopPropagation();
-       });
+        modale.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
 
-       croix.addEventListener("click", () => {
-         modale.style.display = "none";
-         overlay.style.display = "none";
-       });
-            
-    }
+        croix.addEventListener("click", () => {
+            modale.style.display = "none";
+            overlay.style.display = "none";
+        });
 
-
+        
     document.getElementById("logout").addEventListener("click", (event) => {
         event.preventDefault(); // pour empêcher un comportement par défaut éventuel
-        sessionStorage.clear(); // vide toute la mémoire sessionStorage
-        window.location.href = "index.html"; // redirige vers index.html
+        sessionStorage.clear(); 
+        window.location.href = "index.html"; 
     });
+
+    }
 
 
 });
