@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const projects = document.getElementsByClassName("projects")[0];
     const allWorks = await fetchWorks();
 
+
         let categoryMenu = document.getElementById("category-menu");
         if (!categoryMenu) {
             categoryMenu = document.createElement("div");
