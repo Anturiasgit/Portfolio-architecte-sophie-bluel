@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         input.addEventListener('change', () => {
             const file = input.files[0];
             if (file) {
+                document.querySelector(".fa-image").style.display = "none";
+                document.querySelector(".ajouter-photo").style.display = "none";
+                document.querySelector(".input-text").style.display = "none";
+                document.querySelector("#preview").style.display = "flex";
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     preview.style.backgroundImage = `url(${e.target.result})`;
@@ -31,10 +35,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             const image = input.files[0];
             const title = document.querySelector('#title').value.trim();
             const category = document.querySelector('#category').value;
-
+            
             const isValid = image && title && category;
             document.querySelector('#valider').disabled = !isValid;
-            console.log("isValid doit être true, isValid ===> ",isValid);
         }
 
         document.querySelectorAll('#imageInput, #title, #category').forEach(input => {

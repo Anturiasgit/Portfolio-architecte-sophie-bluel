@@ -2,6 +2,7 @@ import "./works.js";
 import "./categories.js";
 import { fetchWorks } from "./works.js";
 import "./add.js";
+import { deletable } from "./delete.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -15,6 +16,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const worksImages = document.querySelector(".works-images");
         const edit = document.querySelector(".edit");
         const modale = document.querySelector(".modale");
+        const modaleGal = document.querySelector(".modale-gallery");
+        const modaleAdd = document.querySelector(".modale-add");
         const overlay = document.querySelector("#overlay");
         const croix = document.querySelector(".fa-xmark");
 
@@ -31,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 image.src = work.imageUrl;
                 image.alt = work.title;
                 bin.className = "fa-solid fa-trash-can";
+                bin.id = work.id;
 
                 worksImages.appendChild(workImage);
                 workImage.appendChild(image);
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
         displayWorksImages(allWorks);
+        deletable();
 
         edit.style.display = "flex";
 
@@ -62,6 +67,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         croix.addEventListener("click", () => {
             modale.style.display = "none";
             overlay.style.display = "none";
+        });
+
+        modaleGal.querySelector(".btn-add").addEventListener("click", () => {
+            modaleAdd.style.display = "inline";
+            modaleGal.style.display = "none";
+        });
+
+        modaleAdd.querySelector(".fa-arrow-left").addEventListener("click", () => {
+            modaleGal.style.display = "inline";
+            modaleAdd.style.display = "none";
+
         });
 
         

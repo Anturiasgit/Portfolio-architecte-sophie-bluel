@@ -1,3 +1,4 @@
+import { fetchWorks } from "./works.js";
 import * as w from "./works.js";
 
 let cats = [];
@@ -14,9 +15,9 @@ let cats = [];
     }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    
     const allCats = await fetchCategories();
     const projects = document.getElementsByClassName("projects")[0];
+    const allWorks = await fetchWorks();
 
         let categoryMenu = document.getElementById("category-menu");
         if (!categoryMenu) {
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Bouton "Tous"
         const allButton = document.createElement("button");
         allButton.textContent = "Tous";
-        allButton.addEventListener("click", () => w.display(w.allWorks));
+        allButton.addEventListener("click", () => w.display(allWorks));
         categoryMenu.appendChild(allButton);
     
         // Ajouter chaque catégorie
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const button = document.createElement("button");
             button.textContent = category.name;
             button.addEventListener("click", () => {
-                const filteredWorks = w.allWorks.filter(work => work.categoryId === category.id);
+                const filteredWorks = allWorks.filter(work => work.categoryId === category.id);
                 w.display(filteredWorks);
             });
             categoryMenu.appendChild(button);

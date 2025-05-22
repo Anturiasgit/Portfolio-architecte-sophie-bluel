@@ -60,12 +60,12 @@
 		<div id="overlay">
 			<section class="modale">
 			<i class="fa-solid fa-xmark"></i>
-			<div class="modale-gallery" hidden>
+			<div class="modale-gallery">
 			<h3>Galerie photo</h3>
 			<div class="works-images">
 			</div>
 			<hr id="trait">
-			<button>Ajouter une photo</button>
+			<button class="btn-add">Ajouter une photo</button>
 			</div>	
 			
 			<div class="modale-add">
@@ -74,10 +74,11 @@
 			<form action="#">
 				<div class="upload-box">
 					<i class="fa-regular fa-image"></i>
-					<label for="file-input" class="custom-upload-label">+ Ajouter photo</label>
+					<label for="file-input" class="label-file"></label>
+					<div class="ajouter-photo">+ Ajouter photo</div>	
 					<input type="file" id="file-input" accept="image/png, image/jpeg" required hidden/>
 					<div id="preview"></div>
-					<p>jpg, png : 4mo max</p>
+					<p class="input-text">jpg, png : 4mo max</p>
 				</div>
 				<div class="title-and-category">
 				<label for="title">Titre</label>
