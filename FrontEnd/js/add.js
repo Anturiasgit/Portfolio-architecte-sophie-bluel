@@ -3,7 +3,7 @@ import { fetchCategories } from "./categories.js";
 document.addEventListener("DOMContentLoaded", async () => {
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
-        const allCats = await fetchCategories(); 
+        const allCats = await fetchCategories();
 
         const input = document.querySelector('#file-input');
         const preview = document.querySelector("#preview");
@@ -35,14 +35,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             const image = input.files[0];
             const title = document.querySelector('#title').value.trim();
             const category = document.querySelector('#category').value;
-            
+
             const isValid = image && title && category;
-            document.querySelector('#valider').disabled = !isValid;
+            document.querySelector("#valider").disabled = !isValid;
+            
+            if (isValid) {
+                document.querySelector("#error-fullness").style.display = "none";
+            } else {
+                document.querySelector("#error-fullness").style.display = "block";
+            }
         }
 
         document.querySelectorAll('#imageInput, #title, #category').forEach(input => {
-                input.addEventListener('input', checkFormValidity);
-                input.addEventListener('change', checkFormValidity); 
-            })
-        }
-    });
+            input.addEventListener('input', checkFormValidity);
+            input.addEventListener('change', checkFormValidity);
+        })
+    }
+});

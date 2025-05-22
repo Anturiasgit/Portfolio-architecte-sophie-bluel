@@ -387,8 +387,13 @@ select[id="category"] {
 	color: rgb(58, 53, 53);
 }
 
-.modale #valider:disabled {
+.modale-add #valider:disabled {
 	background-color: rgb(175, 170, 170);
+}
+
+.modale-add #error-fullness {
+	text-align: center;
+	color: red;
 }
 
 .works-images {
@@ -452,7 +457,6 @@ select[id="category"] {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 1000;
 }
-
 
 .modale .modale-add {
 	display: none;
