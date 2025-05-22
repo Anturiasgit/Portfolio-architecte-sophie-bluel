@@ -20,8 +20,9 @@ export function display(worksToDisplay) {
 
     worksToDisplay.forEach(work => {
         const figure = document.createElement("figure");
+        figure.id = work.categoryId;
         figure.innerHTML = `
-                <img src="${work.imageUrl}" alt="${work.title}" class="${work.categoryId}">
+                <img src="${work.imageUrl}" alt="${work.title}">
                 <figcaption>${work.title}</figcaption>
             `;
         gallery.appendChild(figure);

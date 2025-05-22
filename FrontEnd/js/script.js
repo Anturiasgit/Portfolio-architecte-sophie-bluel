@@ -2,7 +2,7 @@ import "./works.js";
 import "./categories.js";
 import { fetchWorks } from "./works.js";
 import "./add.js";
-import { deletable } from "./delete.js";
+import { suppression } from "./delete.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
         displayWorksImages(allWorks);
-        deletable();
-
+        suppression();
+        
         edit.style.display = "flex";
 
         edit.addEventListener("click", () => {

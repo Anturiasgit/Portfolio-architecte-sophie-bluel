@@ -1,24 +1,29 @@
-export function deletable() {
+export function suppression() {
     const works = document.querySelectorAll(".work-image");
 
     works.forEach(work => {
-            const bin = work.querySelector(".fa-trash-can");
+        const bin = work.querySelector(".fa-trash-can");
         bin.addEventListener("click", async () => {
             const id = bin.id;
-
             try {
                 const response = await fetch(`http://localhost:5678/api/works/${id}`, {
                     method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                    },
                 });
-                const data = await response.json();
-                console.log(data);
+                if (response.ok){
+                    work.remove();
+                    document.getElementById(id).remove();
+                }
+
             } catch (error) {
-                console.error("Erreur lors de la récupération des travaux :", error);
+                console.error("Erreur lors de la tentative de suppresion:", error);
             }
         });
     });
 }
-    
+
 
 
 
