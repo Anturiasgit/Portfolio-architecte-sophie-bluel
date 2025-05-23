@@ -1,5 +1,6 @@
 export function suppression() {
     const works = document.querySelectorAll(".work-image");
+    const figures = document.querySelectorAll("figure");
 
     works.forEach(work => {
         const bin = work.querySelector(".fa-trash-can");
@@ -14,7 +15,11 @@ export function suppression() {
                 });
                 if (response.ok){
                     work.remove();
-                    document.getElementById(id).remove();
+                    figures.forEach(fig => {
+                        if(fig.id == id) {
+                            fig.remove();
+                        }
+                    });
                 }
 
             } catch (error) {

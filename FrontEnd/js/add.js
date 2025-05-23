@@ -65,15 +65,41 @@ document.addEventListener("DOMContentLoaded", async () => {
                     },
                     body: formData,
                 });
+                const data = await response.json();
 
-                if (!response.ok) {
+                if (response.ok) {
+                    const gallery = document.querySelector(".gallery");
+                    const figure = document.createElement("figure");
+
+                    const worksImages = document.querySelector(".works-images");
+                    const workImage = document.createElement("div");
+                    const image = document.createElement("img");
+                    const bin = document.createElement("i");
+
+                    figure.id = data.id;
+                    figure.innerHTML = `
+                        <img src="${data.imageUrl}" alt="${data.title}">
+                        <figcaption>${data.title}</figcaption>`;
+                    
+                    gallery.appendChild(figure);
+
+
+                    workImage.classList.add("work-image");
+                    image.src = data.imageUrl;
+                    image.alt = data.title;
+                    bin.className = "fa-solid fa-trash-can";
+                    bin.id = data.id;
+
+                    worksImages.appendChild(workImage);
+                    workImage.appendChild(image);
+                    workImage.appendChild(bin);
+
+                } else if (!response.ok) {
                     throw new Error("Échec de l'ajout");
                 }
-                console.log("Travail ajouté avec succès !");
-                console.log(response);
             } catch (error) {
                 console.error("Erreur lors de l'ajout d'un work :", error.message);
-                }
+            }
         }
 
 
