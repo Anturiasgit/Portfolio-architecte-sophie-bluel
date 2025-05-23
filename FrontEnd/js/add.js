@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
         const allCats = await fetchCategories();
 
+        const form = document.querySelector("form");
         const input = document.querySelector('#file-input');
         const preview = document.querySelector("#preview");
         const addCat = document.querySelector("#category");
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        document.querySelector("form").addEventListener("submit", function (event) {
+            form.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const title = document.querySelector('#title').value;
@@ -115,8 +116,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (category.name == categoryValue) {
                     categoryId = category.id;
                 }
-            });
+            }); 
 
+            form.reset();
+            file.value = ""; 
+            preview.style.backgroundImage = "";
+            document.querySelector(".fa-image").style.display = "inline";
+            document.querySelector(".ajouter-photo").style.display = "inline";
+            document.querySelector(".input-text").style.display = "inline";
+            document.querySelector("#preview").style.display = "none";
+            
             sendWork(title, file, categoryId);
         });
 
