@@ -11,8 +11,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
         const login = document.getElementById("login");
+        const h2 = document.querySelector("#portfolio h2");
+        h2.style.marginRight = "25px";
+        h2.style.marginLeft = "120px";
         login.textContent = "logout";
         login.id = "logout";
+
         const worksImages = document.querySelector(".works-images");
         const edit = document.querySelector(".edit");
         const modale = document.querySelector(".modale");
@@ -20,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const modaleAdd = document.querySelector(".modale-add");
         const overlay = document.querySelector("#overlay");
         const croix = document.querySelector(".fa-xmark");
-
+        
 
         function displayWorksImages(worksToDisplay) {
             worksImages.innerHTML = "";
@@ -46,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         suppression();
         
         edit.style.display = "flex";
-
+       
         edit.addEventListener("click", () => {
             modale.style.display = "inline";
             overlay.style.display = "inline";

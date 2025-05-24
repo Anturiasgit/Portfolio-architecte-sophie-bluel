@@ -56,5 +56,10 @@ document.addEventListener("DOMContentLoaded", async () => {
               button.classList.add('active');
             });
           });
+
+        if (window.sessionStorage.getItem("token") && window.sessionStorage.getItem("userId")) {
+            document.querySelector(".category-menu").style.display = "none";
+        }
+
     });
 
