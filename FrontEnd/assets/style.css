@@ -410,11 +410,12 @@ select[id="category"] {
 	cursor: pointer;
 	width: 15.5%;
 	height: 125px;
-	margin: 0 10px 40px 0;
+	margin: 0 10px 35px 0;
 }
 
 .work-image img {
 	width: 100%;
+	height: 100%;
 }
 
 .fa-trash-can {
