@@ -45,6 +45,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             } else {
                 document.querySelector("#error-fullness").style.display = "block";
             }
+
+            form.addEventListener("submit", () => { 
+                document.querySelector("#valider").disabled = isValid;
+                document.querySelector("#error-fullness").style.display = "block";
+            });
         }
 
         document.querySelectorAll('#imageInput, #title, #category').forEach(input => {
