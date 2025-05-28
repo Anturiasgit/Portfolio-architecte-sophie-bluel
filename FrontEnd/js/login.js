@@ -1,3 +1,8 @@
+if (sessionStorage.getItem("token")) {
+    window.location.href = "index.html";
+}
+
+
 window.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname;
     const loginLink = document.getElementById('login-link');
